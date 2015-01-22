@@ -12,7 +12,10 @@ object ApplicationBuild extends Build {
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
-      resolvers += "Local Play Repository" at "file://user/local/play-2.0.2/repository/local"
+      resolvers += Resolver.url("Tindr's Play module repository",
+        url("http://github.com/boldradius/tindr.github.com/blob/master/releases/"))
+        (Resolver.ivyStylePatterns)
+      )
     )
 
 }
